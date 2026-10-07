@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_bg"
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bar_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Guideline объявлены здесь, во внутреннем ConstraintLayout,
+                 потому что constraint-ссылки работают только между прямыми
+                 детьми одного и того же контейнера. Карточки ниже - его
+                 прямые дети, поэтому guideline тоже должны быть его детьми,
+                 а не детьми корневого layout. -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.06" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.94" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Конфигуратор подписки"
+                android:textColor="@color/text_primary"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_tariff"
+                style="@style/Widget.App.SectionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/text_title"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:text="Тарифный план"
+                        style="@style/TextAppearance.App.SectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:scrollbars="none"
+                        android:overScrollMode="never">
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggle_tariff"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_tariff_0"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:text="Базовый" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_tariff_1"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:text="Стандарт" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_tariff_2"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:text="Премиум" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_tariff_3"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:text="Бизнес" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_tariff_4"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:text="Корпоративный" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_users"
+                style="@style/Widget.App.SectionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintTop_toBottomOf="@id/card_tariff"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/text_users_label"
+                        android:text="Количество пользователей"
+                        style="@style/TextAppearance.App.SectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_decrement"
+                        style="@style/Widget.Material3.Button.IconButton.Outlined"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="12dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="–"
+                        android:textSize="22sp"
+                        android:contentDescription="Уменьшить количество пользователей"
+                        app:layout_constraintTop_toBottomOf="@id/text_users_label"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/text_user_count"
+                        app:layout_constraintHorizontal_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/text_user_count"
+                        android:layout_width="64dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="12dp"
+                        android:text="1"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        app:layout_constraintTop_toBottomOf="@id/text_users_label"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn_decrement"
+                        app:layout_constraintEnd_toStartOf="@id/btn_increment" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_increment"
+                        style="@style/Widget.Material3.Button.IconButton.Outlined"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="12dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="+"
+                        android:textSize="22sp"
+                        android:contentDescription="Увеличить количество пользователей"
+                        app:layout_constraintTop_toBottomOf="@id/text_users_label"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/text_user_count"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_storage"
+                style="@style/Widget.App.SectionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintTop_toBottomOf="@id/card_users"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:text="Дополнительное хранилище"
+                        style="@style/TextAppearance.App.SectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_storage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_storage_0"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 ГБ" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_storage_1"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50 ГБ" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_storage_2"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100 ГБ" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_storage_3"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="200 ГБ" />
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_period"
+                style="@style/Widget.App.SectionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintTop_toBottomOf="@id/card_storage"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:text="Периодичность оплаты"
+                        style="@style/TextAppearance.App.SectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_toggle_yearly"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="10dp"
+                        android:checkable="true"
+                        android:text="Годовая оплата (скидка 20%)"
+                        app:backgroundTint="@color/selector_yearly_bg"
+                        android:textColor="@color/selector_yearly_text"
+                        app:strokeColor="@color/brand_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_budget"
+                style="@style/Widget.App.SectionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintTop_toBottomOf="@id/card_period"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:text="Ориентировочный бюджет"
+                        style="@style/TextAppearance.App.SectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_budget_layout"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Сумма, ₽"
+                        app:suffixText="₽">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_budget"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="7"
+                            android:text="5000" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_indicator"
+                style="@style/Widget.App.SectionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintTop_toBottomOf="@id/card_budget"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintEnd_toEndOf="@id/guide_end">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:text="Доля условного бюджета"
+                        style="@style/TextAppearance.App.SectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start" />
+
+                    <com.example.modulsapp.view.TariffFillView
+                        android:id="@+id/tariff_fill_view"
+                        android:layout_width="168dp"
+                        android:layout_height="168dp"
+                        android:layout_marginTop="16dp"
+                        app:fillPercent="6"
+                        app:savingPercent="0"
+                        app:ringColor="@color/brand_primary"
+                        app:trackColor="@color/surface_outline"
+                        app:savingColor="@color/brand_accent" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bar_total"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/surface_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp">
+
+            <TextView
+                android:id="@+id/text_total_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Итог к оплате"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/text_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Итог: 299 ₽"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                app:layout_constraintTop_toBottomOf="@id/text_total_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="text_total_label,text_total" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_order"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:text="Оформить подписку"
+                app:backgroundTint="@color/brand_primary"
+                android:textColor="@color/text_on_brand"
+                app:cornerRadius="14dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/barrier_total"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_min="150dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

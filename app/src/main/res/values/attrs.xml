@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TariffFillView">
+        <attr name="fillPercent" format="float" />
+        <attr name="savingPercent" format="float" />
+        <attr name="ringColor" format="color" />
+        <attr name="trackColor" format="color" />
+        <attr name="savingColor" format="color" />
+    </declare-styleable>
+</resources>
