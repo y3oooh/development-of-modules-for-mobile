@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.HotelBooking" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#A9C7FF</item>
+        <item name="colorOnPrimary">#003064</item>
+        <item name="colorPrimaryContainer">#00458B</item>
+        <item name="colorOnPrimaryContainer">#D6E3FF</item>
+
+        <item name="colorSecondary">#E6C36B</item>
+        <item name="colorOnSecondary">#3D2E00</item>
+
+        <item name="colorSurface">#1A1B20</item>
+        <item name="colorOnSurface">#E3E2E6</item>
+        <item name="colorSurfaceVariant">#44464F</item>
+        <item name="colorOnSurfaceVariant">#C4C6D0</item>
+
+        <item name="colorError">#FFB4AB</item>
+        <item name="colorOnError">#690005</item>
+
+        <item name="colorOutline">#8E9099</item>
+    </style>
+</resources>

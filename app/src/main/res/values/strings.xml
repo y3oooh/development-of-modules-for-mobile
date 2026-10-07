@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">HotelBooking</string>
+
+    <string name="section_guest">Данные гостя</string>
+    <string name="section_stay">Период проживания</string>
+    <string name="section_room">Номер</string>
+
+    <string name="hint_name">ФИО гостя</string>
+    <string name="hint_passport">Паспорт: серия и номер</string>
+    <string name="hint_phone">Телефон</string>
+    <string name="hint_email">Электронная почта</string>
+    <string name="hint_checkin">Дата заезда</string>
+    <string name="hint_checkout">Дата выезда</string>
+    <string name="hint_guests">Число гостей</string>
+    <string name="hint_room_type">Категория номера</string>
+    <string name="hint_wishes">Пожелания</string>
+
+    <string name="helper_passport">4 цифры серии и 6 цифр номера</string>
+    <string name="helper_phone">Формат: +7 900 000-00-00</string>
+
+    <string name="error_name_required">Введите фамилию и имя</string>
+    <string name="error_phone_format">Формат: +7 900 000-00-00</string>
+    <string name="error_email_format">Некорректный email</string>
+    <string name="error_passport_format">Серия 4 цифры, номер 6 цифр</string>
+    <string name="error_checkin_required">Выберите дату заезда</string>
+    <string name="error_checkout_required">Выберите дату выезда</string>
+    <string name="error_date_range">Выезд должен быть позже заезда</string>
+    <string name="error_guests_required">Укажите число гостей</string>
+    <string name="error_guests_range">От 1 до 10 гостей</string>
+    <string name="error_guests_number">Введите число</string>
+    <string name="error_room_type_required">Выберите категорию</string>
+
+    <string name="btn_submit">Забронировать</string>
+    <string name="btn_add_calendar">Добавить в календарь</string>
+    <string name="btn_confirm">Подтвердить</string>
+    <string name="btn_cancel">Отмена</string>
+
+    <string name="dialog_confirm_title">Проверьте бронь</string>
+    <string name="dialog_permission_title">Уведомления</string>
+    <string name="dialog_permission_message">Разрешить напоминание о заезде?</string>
+
+    <string name="hint_fill_form">Заполните обязательные поля</string>
+    <string name="hint_form_ready">Всё готово — можно бронировать</string>
+
+    <string name="msg_permission_denied">Напоминание не придёт. Бронь всё равно оформлена.</string>
+    <string name="msg_no_calendar">Приложение календаря не найдено</string>
+    <string name="msg_booking_success">Бронь оформлена</string>
+
+    <string name="hint_promo">Промокод</string>
+    <string name="helper_promo">Введите код, если есть</string>
+    <string name="error_promo_invalid">Промокод не найден</string>
+    <string name="promo_applied">Скидка %1$d%%</string>
+    <string name="promo_none">Без скидки</string>
+</resources>
