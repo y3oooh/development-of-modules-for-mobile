@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sonora</string>
+
+    <string name="player_play">Воспроизвести</string>
+    <string name="player_pause">Пауза</string>
+    <string name="player_next">Следующий трек</string>
+    <string name="player_previous">Предыдущий трек</string>
+    <string name="player_progress">Прогресс трека</string>
+
+    <string name="cover_art_description">Обложка альбома</string>
+
+    <string name="loading_description">Загрузка</string>
+    <string name="empty_state_title">Пока нет треков</string>
+    <string name="empty_state_message">Добавьте треки в плейлист, чтобы начать слушать</string>
+    <string name="empty_state_action">Открыть плейлист</string>
+    <string name="loading_player">Загрузка плеера…</string>
+
+    <string name="playlist_title">Плейлист</string>
+    <string name="now_playing">Играет сейчас</string>
+    <string name="track_duration">Длительность</string>
+</resources>
